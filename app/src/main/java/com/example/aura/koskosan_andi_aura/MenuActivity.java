@@ -47,9 +47,9 @@ public class MenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
-        getSupportActionBar().setTitle(R.string.name_fragment_kamar);
+//        fm = getSupportFragmentManager();
+//        fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
+//        getSupportActionBar().setTitle(R.string.name_fragment_kamar);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class MenuActivity extends AppCompatActivity
 
         if (id == R.id.nav_kamar) {
             fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
+//            fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
             getSupportActionBar().setTitle(R.string.name_fragment_kamar);
 
         } else if (id == R.id.nav_comingsoon) {
