@@ -25,7 +25,7 @@ public class KamarDetailFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_kamar_detail, container, false);
     }
 
-    public void setResep(long id){
+    public void setKos(long id){
         this.kosId = id;
     }
 

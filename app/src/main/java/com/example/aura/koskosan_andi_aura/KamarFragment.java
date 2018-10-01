@@ -14,6 +14,8 @@ import android.widget.ListView;
 
 public class KamarFragment extends ListFragment {
 
+    private Listener listener;
+
     public KamarFragment() {
         // Required empty public constructor
     }
@@ -38,18 +40,18 @@ public class KamarFragment extends ListFragment {
         void itemClicked(long id);
     }
 
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        this . listener = (Listener) context ;
-//    }
-//
-//    @Override
-//    public void onListItemClick(ListView listView, View itemView, int position, long id){
-//        if(listener != null)
-//        {
-//            listener.itemClicked(id);
-//        }
-//    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this . listener = (Listener) context ;
+    }
+
+    @Override
+    public void onListItemClick(ListView listView, View itemView, int position, long id){
+        if(listener != null)
+        {
+            listener.itemClicked(id);
+        }
+    }
 
 }

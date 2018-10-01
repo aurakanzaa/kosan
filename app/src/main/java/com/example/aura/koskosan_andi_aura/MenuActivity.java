@@ -1,9 +1,11 @@
 package com.example.aura.koskosan_andi_aura;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,9 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener, KamarFragment.Listener{
 
     private FragmentManager fm;
 
@@ -100,8 +103,27 @@ public class MenuActivity extends AppCompatActivity
         return true;
     }
 
-//    @Override
-//    public void itemClicked(long id) {
-//
-//    }
+    @Override
+    public void itemClicked(long id) {
+        View fragmentContainer = findViewById(R.id.details_frag);
+        if(fragmentContainer != null){
+            KamarDetailFragment details = new KamarDetailFragment();
+
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            details.setKos(id);
+
+            ft.replace(R.id.details_frag, details);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.addToBackStack(null);
+
+            ft.commit();
+        }else{
+            Toast.makeText(this, "Item"+id+ "di klik", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this.getApplicationContext(), DetailActivity.class);
+            Bundle b = new Bundle();
+            b.putDouble("id", id);
+            i.putExtras(b);
+            startActivity(i);
+        }
+    }
 }
