@@ -27,4 +27,10 @@
         android:text="harga ini"
         android:id="@+id/textPrice"/>
 
+    <ImageView
+        android:id="@+id/fotoKamar"
+        android:src="@drawable/star"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

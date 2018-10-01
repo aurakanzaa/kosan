@@ -92,7 +92,7 @@ public class MenuActivity extends AppCompatActivity
 
         if (id == R.id.nav_kamar) {
             fm = getSupportFragmentManager();
-//            fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
+            fm.beginTransaction().replace(R.id.fm_pager_nav, new KamarFragment()).commit();
             getSupportActionBar().setTitle(R.string.name_fragment_kamar);
 
         } else if (id == R.id.nav_comingsoon) {
@@ -121,7 +121,7 @@ public class MenuActivity extends AppCompatActivity
             Toast.makeText(this, "Item"+id+ "di klik", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this.getApplicationContext(), DetailActivity.class);
             Bundle b = new Bundle();
-            b.putDouble("id", id);
+            b.putLong("id", id);
             i.putExtras(b);
             startActivity(i);
         }

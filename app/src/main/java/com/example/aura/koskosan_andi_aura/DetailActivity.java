@@ -13,6 +13,6 @@ public class DetailActivity extends AppCompatActivity {
         KamarDetailFragment frag = (KamarDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_frag);
 //        frag.setResep(1);
         Bundle b = getIntent().getExtras();
-        frag.setKos(b.getInt("id"));
+        frag.setKos(b.getLong("id"));
     }
 }
